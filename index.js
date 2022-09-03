@@ -3,19 +3,18 @@ const newTask = (title, description) => {
   const task = {
     title,
     description,
-    complete: false
+    complete: false,
+    logTaskState: function() {
+      console.log(
+        `${this.title} has${this.complete ? " " : " not "}been completed`
+      );
+    },
+    completeTask: function() {
+      task.complete = true;
+    }
   };
   return task;
 };
-
-function logTaskState(task) {
-  console.log(
-    `${task.title} has${task.complete ? " " : " not "}been completed`
-  );
-}
-function completeTask(task) {
-  task.complete = true;
-}
 
 const task1 = newTask(
   "Clean Cat Litter",
@@ -24,8 +23,6 @@ const task1 = newTask(
 const task2 = newTask("Do Laundry", "😨");
 const tasks = [task1, task2];
 
-logTaskState(task1); // Clean Cat Litter has not been completed
-completeTask(task1);
-logTaskState(task1);
-
-console.log(tasks);
+task1.logTaskState();
+task1.completeTask();
+task1.logTaskState();

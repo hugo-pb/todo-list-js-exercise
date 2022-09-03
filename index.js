@@ -3,7 +3,7 @@ const newTask = (title, description) => {
   const task = {
     title,
     description,
-    completed: false
+    complete: false
   };
   return task;
 };
